@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     "catalogue",
     "catalogue.contrib.users.apps.UsersConfig",
     "catalogue.contrib.stores.apps.StoresConfig",
+    "catalogue.contrib.tags.apps.TagsConfig",
+
 ]
 
 ROOT_URLCONF = "catalogue.urls"
