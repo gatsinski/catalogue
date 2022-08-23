@@ -15,6 +15,6 @@ class GamesAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         form.base_fields['owner'].initial = request.user
-        form.base_fields['store'].initial = Store.objects.first()
+        form.base_fields['store'].initial = request.user.default_store
 
         return form

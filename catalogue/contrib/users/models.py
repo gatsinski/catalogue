@@ -24,6 +24,14 @@ class User(AbstractUser):
         validators=[username_validator],
         error_messages={"unique": _("A user with that username already exists.")},
     )
+    default_store = models.ForeignKey(
+        "stores.Store",
+        related_name="default_usages",
+        on_delete=models.CASCADE,
+        verbose_name=_("Default"),
+        blank=True,
+        null=True
+    )
 
     objects = UserManager()
 
