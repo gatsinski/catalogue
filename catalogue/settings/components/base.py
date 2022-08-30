@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "catalogue.contrib.stores.apps.StoresConfig",
     "catalogue.contrib.tags.apps.TagsConfig",
     "catalogue.contrib.games.apps.GamesConfig",
-
+    "catalogue.contrib.books.apps.BooksConfig",
 
 ]
 
