@@ -7,6 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from catalogue.models import TimestampedModel
 
+from .constants import GAMES, TAG_USES
+
 UserModel = get_user_model()
 
 
@@ -16,6 +18,7 @@ class Tag(TimestampedModel):
     author = models.ForeignKey(
         UserModel, related_name="tags", on_delete=models.CASCADE
     )
+    use = models.CharField(_('Use'), max_length=254, choices=TAG_USES, default=GAMES)
 
     class Meta:
         verbose_name = _("Tag")

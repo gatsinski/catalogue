@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from catalogue.models import TimestampedModel
+from catalogue.contrib.tags import constants as tag_constants
 
 UserModel = get_user_model()
 
@@ -23,7 +24,7 @@ class Game(TimestampedModel):
         verbose_name=_("Store"),
     )
     tags = models.ManyToManyField(
-        "tags.Tag", related_name="games", verbose_name=_("Tags"), blank=True
+        "tags.Tag", related_name="games", verbose_name=_("Tags"), limit_choices_to={'use': tag_constants.GAMES}, blank=True
     )
     notes = models.CharField(_("Notes"), max_length=1024, blank=True)
 
